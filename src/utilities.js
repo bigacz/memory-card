@@ -1,4 +1,5 @@
 import genres from 'data/genres.json';
+import difficulties from 'data/difficulties.json';
 
 async function fetchMoviesData(genre) {
   const genreId = getGenreId(genre);
@@ -40,16 +41,26 @@ async function fetchMoviesData(genre) {
   }
 }
 
-export { fetchMoviesData };
+function getDifficultyQuantity(searchedDifficultyName) {
+  searchedDifficultyName = searchedDifficultyName.toLowerCase();
+
+  const foundDifficulty = difficulties.find((difficulty) => {
+    return difficulty.name == searchedDifficultyName;
+  });
+
+  return foundDifficulty?.quantity;
+}
+
+export { fetchMoviesData, getDifficultyQuantity };
 
 function getGenreId(searchedGenreName) {
   searchedGenreName = searchedGenreName.toLowerCase();
 
-  const genre = genres.find((genre) => {
+  const foundGenre = genres.find((genre) => {
     const genreName = genre.name.toLowerCase();
 
     return genreName == searchedGenreName;
   });
 
-  return genre?.id;
+  return foundGenre?.id;
 }
