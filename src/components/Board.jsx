@@ -6,6 +6,13 @@ import EndModal from 'components/EndModal';
 
 import { useEffect, useState } from 'react';
 
+/**
+ *
+ * @param {'easy'|'normal'|'hard'|'serious'} props.difficulty - Determines amount of cards on the board.
+ * @param {string} props.genre - The genre of movies that should be displayed on cards.
+ * @returns
+ */
+
 function Board({ difficulty, genre }) {
   const [movies, setMovies] = useState([]);
   const [areClicked, setAreClicked] = useState([]);
