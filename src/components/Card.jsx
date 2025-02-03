@@ -5,6 +5,13 @@
  * @param {function} props.onClick - Function that will be called on click of the card.
  */
 
-function Card({ text, image, onClick }) {}
+function Card({ text, image, onClick }) {
+  return (
+    <div onClick={onClick}>
+      <img src={image} alt="Poster of movie" />
+      <p>{text}</p>
+    </div>
+  );
+}
 
 export default Card;
