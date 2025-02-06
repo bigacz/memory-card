@@ -43,7 +43,7 @@ function Board({ difficulty, genre }) {
     };
   }, [genre]);
 
-  if (movies.length <= quantity) {
+  if (movies.length < quantity) {
     return <div></div>;
   }
 
