@@ -51,7 +51,31 @@ function getDifficultyQuantity(searchedDifficultyName) {
   return foundDifficulty?.quantity;
 }
 
-export { fetchMoviesData, getDifficultyQuantity };
+function generateValueArray(quantity, value) {
+  const valueArray = [];
+  for (let i = 0; i < quantity; i++) {
+    valueArray.push(value);
+  }
+
+  return valueArray;
+}
+
+function countValuesInArray(array, value) {
+  return array.reduce((accumulator, item) => {
+    const isSame = item === value;
+
+    const newAccumulator = isSame ? accumulator + 1 : accumulator;
+
+    return newAccumulator;
+  }, 0);
+}
+
+export {
+  fetchMoviesData,
+  getDifficultyQuantity,
+  generateValueArray,
+  countValuesInArray,
+};
 
 function getGenreId(searchedGenreName) {
   searchedGenreName = searchedGenreName.toLowerCase();

@@ -15,7 +15,7 @@ function EndModal({
   difficulty,
   genre,
   onNavigateToMenuClick,
-  onGameRestartClick,
+  onRestartGameClick,
 }) {
   return (
     <div>
@@ -26,7 +26,7 @@ function EndModal({
         <p>Genre: {genre}</p>
       </div>
       <button onClick={onNavigateToMenuClick}>Main Menu</button>
-      <button onClick={onGameRestartClick}>Play again</button>
+      <button onClick={onRestartGameClick}>Play again</button>
     </div>
   );
 }

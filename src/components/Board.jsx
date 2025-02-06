@@ -6,6 +6,8 @@ import EndModal from 'components/EndModal';
 
 import { useEffect, useState } from 'react';
 
+import { generateValueArray, countValuesInArray } from 'src/utilities';
+
 /**
  *
  * @param {'easy'|'normal'|'hard'|'serious'} props.difficulty - Determines amount of cards on the board.
@@ -14,8 +16,14 @@ import { useEffect, useState } from 'react';
  */
 
 function Board({ difficulty, genre }) {
+  const quantity = getDifficultyQuantity(difficulty);
+
   const [movies, setMovies] = useState([]);
-  const [areClicked, setAreClicked] = useState([]);
+  const [clicks, setClicks] = useState(generateValueArray(quantity, 0));
+
+  function restartGame() {
+    setClicks(generateValueArray(quantity, 0));
+  }
 
   useEffect(() => {
     let isIgnored = false;
@@ -35,8 +43,6 @@ function Board({ difficulty, genre }) {
     };
   }, [genre]);
 
-  const quantity = getDifficultyQuantity(difficulty);
-
   if (movies.length <= quantity) {
     return <div></div>;
   }
@@ -44,14 +50,15 @@ function Board({ difficulty, genre }) {
   let cards = [];
   for (let i = 0; i < quantity; i++) {
     const movie = movies[i];
-    const isClicked = areClicked[i] ?? false;
     const imagePath = `https://image.tmdb.org/t/p/w300/${movie.poster_path}`;
 
-    function setIsClicked() {
-      const newAreClicked = [...areClicked];
-      newAreClicked[i] = !isClicked;
+    function handleCardClick() {
+      const newClicks = [...clicks];
+      newClicks[i] += 1;
 
-      setAreClicked(newAreClicked);
+      if (!isEnd) {
+        setClicks(newClicks);
+      }
     }
 
     const card = (
@@ -59,15 +66,34 @@ function Board({ difficulty, genre }) {
         key={movie.id}
         text={movie.title}
         image={imagePath}
-        isClicked={isClicked}
-        onClick={setIsClicked}
+        onClick={handleCardClick}
       />
     );
 
     cards.push(card);
   }
 
-  return <div>{cards}</div>;
+  const isLoss = clicks.some((click) => click > 1);
+  const isWin = clicks.every((click) => click === 1);
+  const isEnd = isLoss || isWin;
+
+  const score = countValuesInArray(clicks, 1);
+
+  return (
+    <>
+      <div>{cards}</div>
+      {isEnd && (
+        <EndModal
+          isWin={isWin}
+          score={score}
+          difficulty={difficulty}
+          genre={genre}
+          // onNavigateToMenuClick={}
+          onRestartGameClick={restartGame}
+        />
+      )}
+    </>
+  );
 }
 
 export default Board;
