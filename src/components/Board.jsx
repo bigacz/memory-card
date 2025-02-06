@@ -12,10 +12,11 @@ import { generateValueArray, countValuesInArray } from 'src/utilities';
  *
  * @param {'easy'|'normal'|'hard'|'serious'} props.difficulty - Determines amount of cards on the board.
  * @param {string} props.genre - The genre of movies that should be displayed on cards.
+ * @param {string} props.onNavigateToMenu - Function that will be called on click of a main menu button.
  * @returns
  */
 
-function Board({ difficulty, genre }) {
+function Board({ difficulty, genre, onNavigateToMenu }) {
   const quantity = getDifficultyQuantity(difficulty);
 
   const [movies, setMovies] = useState([]);
@@ -88,7 +89,7 @@ function Board({ difficulty, genre }) {
           score={score}
           difficulty={difficulty}
           genre={genre}
-          // onNavigateToMenuClick={}
+          onNavigateToMenuClick={onNavigateToMenu}
           onRestartGameClick={restartGame}
         />
       )}
