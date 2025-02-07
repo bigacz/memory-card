@@ -70,11 +70,31 @@ function countValuesInArray(array, value) {
   }, 0);
 }
 
+function getUniqueNumberArray(quantity) {
+  const sortedArray = [];
+  for (let i = 0; i < quantity; i++) {
+    sortedArray.push(i);
+  }
+
+  const randomArray = [];
+  for (let i = 0; i < quantity; i++) {
+    const length = sortedArray.length;
+    const randomArrayIndex = Math.floor(Math.random() * length);
+
+    const removed = sortedArray.splice(randomArrayIndex, 1);
+
+    randomArray.push(...removed);
+  }
+
+  return randomArray;
+}
+
 export {
   fetchMoviesData,
   getDifficultyQuantity,
   generateValueArray,
   countValuesInArray,
+  getUniqueNumberArray,
 };
 
 function getGenreId(searchedGenreName) {
