@@ -6,7 +6,8 @@ import { useState } from 'react';
 function Game() {
   const [difficulty, setDifficulty] = useState('easy');
   const [genre, setGenre] = useState('western');
-  const [isBoardDisplayed, setIsBoardDisplayed] = useState(true);
+  const [isBoardDisplayed, setIsBoardDisplayed] = useState(false);
+  const [isSelectorDisplayed, setIsSelectorDisplayed] = useState(true);
 
   function hideBoard() {
     setIsBoardDisplayed(false);
@@ -19,6 +20,15 @@ function Game() {
           difficulty={difficulty}
           genre={genre}
           onNavigateToMenu={hideBoard}
+        />
+      )}
+      {isSelectorDisplayed && (
+        <GameSelector
+          selectedDifficulty={difficulty}
+          selectedGenre={genre}
+          onDifficultySelect={setDifficulty}
+          onGenreSelect={null}
+          onExit={null}
         />
       )}
     </>
