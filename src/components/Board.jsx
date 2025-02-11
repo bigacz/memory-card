@@ -2,6 +2,8 @@ import {
   fetchMoviesData,
   getDifficultyQuantity,
   getUniqueNumberArray,
+  removeNumbers,
+  changeArrayOrder,
 } from 'src/utilities';
 
 import Card from 'components/Card';
@@ -36,6 +38,10 @@ function Board({ difficulty, genre, onNavigateToMenu }) {
 
     setOrder(newOrder);
   }
+
+  useEffect(() => {
+    setRandomOrder();
+  }, []);
 
   useEffect(() => {
     let isIgnored = false;
@@ -87,14 +93,9 @@ function Board({ difficulty, genre, onNavigateToMenu }) {
   const reducedOrder = removeNumbers(order, quantity - 1);
   const randomizedCards = changeArrayOrder(cards, reducedOrder);
 
-  const slicedClicks = clicks.slice(0, quantity);
-
-  const isLoss = slicedClicks.some((click) => click > 1);
-  const isWin = slicedClicks.every((click) => click === 1);
-
-  const isEnd = isLoss || isWin;
-
   const score = countValuesInArray(clicks, 1);
+
+  const { isEnd, isWin } = getGameStatus(clicks, quantity);
 
   return (
     <>
@@ -115,22 +116,13 @@ function Board({ difficulty, genre, onNavigateToMenu }) {
 
 export default Board;
 
-function removeNumbers(uncleanArray, maxValue) {
-  return uncleanArray.filter((number) => number <= maxValue);
-}
+function getGameStatus(clicks, quantity) {
+  const slicedClicks = clicks.slice(0, quantity);
 
-function changeArrayOrder(unorderedArray, order) {
-  if (order.length === 0) {
-    return unorderedArray;
-  }
+  const isDefeat = slicedClicks.some((click) => click > 1);
+  const isWin = slicedClicks.every((click) => click === 1);
 
-  const orderedArray = [];
+  const isEnd = isDefeat || isWin;
 
-  unorderedArray.forEach((element, index) => {
-    const orderIndex = order[index];
-
-    orderedArray[orderIndex] = element;
-  });
-
-  return orderedArray;
+  return { isEnd, isWin };
 }

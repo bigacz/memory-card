@@ -89,12 +89,34 @@ function getUniqueNumberArray(quantity) {
   return randomArray;
 }
 
+function removeNumbers(uncleanArray, maxValue) {
+  return uncleanArray.filter((number) => number <= maxValue);
+}
+
+function changeArrayOrder(unorderedArray, order) {
+  if (order.length === 0) {
+    return unorderedArray;
+  }
+
+  const orderedArray = [];
+
+  unorderedArray.forEach((element, index) => {
+    const orderIndex = order[index];
+
+    orderedArray[orderIndex] = element;
+  });
+
+  return orderedArray;
+}
+
 export {
   fetchMoviesData,
   getDifficultyQuantity,
   generateValueArray,
   countValuesInArray,
   getUniqueNumberArray,
+  removeNumbers,
+  changeArrayOrder,
 };
 
 function getGenreId(searchedGenreName) {
