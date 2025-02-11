@@ -1,4 +1,8 @@
-import { fetchMoviesData, getDifficultyQuantity } from 'src/utilities';
+import {
+  fetchMoviesData,
+  getDifficultyQuantity,
+  getUniqueNumberArray,
+} from 'src/utilities';
 
 import Card from 'components/Card';
 import Scoreboard from 'components/Scoreboard';
@@ -20,10 +24,17 @@ function Board({ difficulty, genre, onNavigateToMenu }) {
   const quantity = getDifficultyQuantity(difficulty);
 
   const [movies, setMovies] = useState([]);
-  const [clicks, setClicks] = useState(generateValueArray(quantity, 0));
+  const [clicks, setClicks] = useState(generateValueArray(20, 0));
+  const [order, setOrder] = useState([]);
 
   function restartGame() {
-    setClicks(generateValueArray(quantity, 0));
+    setClicks(generateValueArray(20, 0));
+  }
+
+  function setRandomOrder() {
+    const newOrder = getUniqueNumberArray(20);
+
+    setOrder(newOrder);
   }
 
   useEffect(() => {
@@ -57,9 +68,8 @@ function Board({ difficulty, genre, onNavigateToMenu }) {
       const newClicks = [...clicks];
       newClicks[i] += 1;
 
-      if (!isEnd) {
-        setClicks(newClicks);
-      }
+      setClicks(newClicks);
+      setRandomOrder();
     }
 
     const card = (
@@ -74,15 +84,21 @@ function Board({ difficulty, genre, onNavigateToMenu }) {
     cards.push(card);
   }
 
-  const isLoss = clicks.some((click) => click > 1);
-  const isWin = clicks.every((click) => click === 1);
+  const reducedOrder = removeNumbers(order, quantity - 1);
+  const randomizedCards = changeArrayOrder(cards, reducedOrder);
+
+  const slicedClicks = clicks.slice(0, quantity);
+
+  const isLoss = slicedClicks.some((click) => click > 1);
+  const isWin = slicedClicks.every((click) => click === 1);
+
   const isEnd = isLoss || isWin;
 
   const score = countValuesInArray(clicks, 1);
 
   return (
     <>
-      <div>{cards}</div>
+      <div>{randomizedCards}</div>
       {isEnd && (
         <EndModal
           isWin={isWin}
@@ -98,3 +114,23 @@ function Board({ difficulty, genre, onNavigateToMenu }) {
 }
 
 export default Board;
+
+function removeNumbers(uncleanArray, maxValue) {
+  return uncleanArray.filter((number) => number <= maxValue);
+}
+
+function changeArrayOrder(unorderedArray, order) {
+  if (order.length === 0) {
+    return unorderedArray;
+  }
+
+  const orderedArray = [];
+
+  unorderedArray.forEach((element, index) => {
+    const orderIndex = order[index];
+
+    orderedArray[orderIndex] = element;
+  });
+
+  return orderedArray;
+}
