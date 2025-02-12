@@ -5,7 +5,7 @@ function GameSelector({
   selectedGenre,
   onDifficultySelect,
   onGenreSelect,
-  onExit,
+  onPlayClick,
 }) {
   const difficultiesButtons = difficulties.map((difficulty) => {
     const { name, quantity } = difficulty;
@@ -24,6 +24,9 @@ function GameSelector({
   return (
     <div>
       <div>{difficultiesButtons}</div>
+      <div>
+        <button onClick={onPlayClick}>Play</button>
+      </div>
     </div>
   );
 }

@@ -7,32 +7,30 @@ function Game() {
   const [difficulty, setDifficulty] = useState('easy');
   const [genre, setGenre] = useState('western');
   const [isBoardDisplayed, setIsBoardDisplayed] = useState(false);
-  const [isSelectorDisplayed, setIsSelectorDisplayed] = useState(true);
 
   function hideBoard() {
     setIsBoardDisplayed(false);
   }
 
-  return (
-    <>
-      {isBoardDisplayed && (
-        <Board
-          difficulty={difficulty}
-          genre={genre}
-          onNavigateToMenu={hideBoard}
-        />
-      )}
-      {isSelectorDisplayed && (
-        <GameSelector
-          selectedDifficulty={difficulty}
-          selectedGenre={genre}
-          onDifficultySelect={setDifficulty}
-          onGenreSelect={null}
-          onExit={null}
-        />
-      )}
-    </>
+  function showBoard() {
+    setIsBoardDisplayed(true);
+  }
+
+  const board = (
+    <Board difficulty={difficulty} genre={genre} onNavigateToMenu={hideBoard} />
   );
+
+  const gameSelector = (
+    <GameSelector
+      selectedDifficulty={difficulty}
+      selectedGenre={genre}
+      onDifficultySelect={setDifficulty}
+      onGenreSelect={null}
+      onPlayClick={showBoard}
+    />
+  );
+
+  return <>{isBoardDisplayed ? board : gameSelector}</>;
 }
 
 export default Game;
