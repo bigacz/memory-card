@@ -1,6 +1,16 @@
 import difficulties from 'data/difficulties.json';
 import genres from 'data/genres';
 
+/**
+ *
+ * @param {string} props.selectedDifficulty - Highlights received difficulty.
+ * @param {string} props.selectedGenre - Highlights received genre.
+ * @param {function} props.onDifficultySelect - Function that will be called on a click of any difficulty.
+ * @param {function} props.onGenreSelect - Function that will be called on a click of any genre.
+ * @param {function} props.onPlayClick - Function that will be called on a click of a play button.
+ * @returns
+ */
+
 function GameSelector({
   selectedDifficulty,
   selectedGenre,
