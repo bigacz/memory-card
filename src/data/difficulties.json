@@ -1,18 +1,18 @@
 [
   {
-    "name": "serious",
-    "quantity": 20
-  },
-  {
-    "name": "hard",
-    "quantity": 16
+    "name": "easy",
+    "quantity": 8
   },
   {
     "name": "normal",
     "quantity": 12
   },
   {
-    "name": "easy",
-    "quantity": 8
+    "name": "hard",
+    "quantity": 16
+  },
+  {
+    "name": "serious",
+    "quantity": 20
   }
 ]
