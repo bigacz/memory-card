@@ -31,6 +31,7 @@ function Board({ difficulty, genre, onNavigateToMenu }) {
 
   function restartGame() {
     setClicks(generateValueArray(20, 0));
+    setRandomOrder();
   }
 
   function setRandomOrder() {
@@ -95,7 +96,10 @@ function Board({ difficulty, genre, onNavigateToMenu }) {
 
   return (
     <>
+      <button onClick={restartGame}>Restart</button>
+      <button onClick={onNavigateToMenu}>Exit</button>
       <div>{randomizedCards}</div>
+
       {isEnd && (
         <EndModal
           isWin={isWin}
