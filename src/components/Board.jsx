@@ -27,7 +27,7 @@ function Board({ difficulty, genre, onNavigateToMenu }) {
 
   const [movies, setMovies] = useState([]);
   const [clicks, setClicks] = useState(generateValueArray(20, 0));
-  const [order, setOrder] = useState([]);
+  const [order, setOrder] = useState(getUniqueNumberArray(20));
 
   function restartGame() {
     setClicks(generateValueArray(20, 0));
@@ -38,10 +38,6 @@ function Board({ difficulty, genre, onNavigateToMenu }) {
 
     setOrder(newOrder);
   }
-
-  useEffect(() => {
-    setRandomOrder();
-  }, []);
 
   useEffect(() => {
     let isIgnored = false;
