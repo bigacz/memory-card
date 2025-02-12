@@ -25,7 +25,7 @@ function Game() {
       selectedDifficulty={difficulty}
       selectedGenre={genre}
       onDifficultySelect={setDifficulty}
-      onGenreSelect={null}
+      onGenreSelect={setGenre}
       onPlayClick={showBoard}
     />
   );

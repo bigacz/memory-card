@@ -1,4 +1,4 @@
-import genres from 'data/genres.json';
+import genres from 'data/genres.js';
 import difficulties from 'data/difficulties.json';
 
 async function fetchMoviesData(genre) {

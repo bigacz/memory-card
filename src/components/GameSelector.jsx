@@ -1,4 +1,5 @@
 import difficulties from 'data/difficulties.json';
+import genres from 'data/genres';
 
 function GameSelector({
   selectedDifficulty,
@@ -7,6 +8,20 @@ function GameSelector({
   onGenreSelect,
   onPlayClick,
 }) {
+  const genresButtons = genres.map((genre) => {
+    const { name, id } = genre;
+
+    function sendGenreSelect() {
+      onGenreSelect(name);
+    }
+
+    return (
+      <button onClick={sendGenreSelect} key={id}>
+        {name}
+      </button>
+    );
+  });
+
   const difficultiesButtons = difficulties.map((difficulty) => {
     const { name, quantity } = difficulty;
 
@@ -23,6 +38,7 @@ function GameSelector({
 
   return (
     <div>
+      <div>{genresButtons}</div>
       <div>{difficultiesButtons}</div>
       <div>
         <button onClick={onPlayClick}>Play</button>
