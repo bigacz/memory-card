@@ -109,6 +109,19 @@ function changeArrayOrder(unorderedArray, order) {
   return orderedArray;
 }
 
+function getBestScoresTable() {
+  let bestScoresTable = JSON.parse(localStorage.getItem('bestScores'));
+  if (bestScoresTable == null) {
+    bestScoresTable = {};
+  }
+
+  return bestScoresTable;
+}
+
+function saveBestScoresTable(table) {
+  localStorage.setItem('bestScores', JSON.stringify(table));
+}
+
 export {
   fetchMoviesData,
   getDifficultyQuantity,
@@ -117,6 +130,8 @@ export {
   getUniqueNumberArray,
   removeNumbers,
   changeArrayOrder,
+  getBestScoresTable,
+  saveBestScoresTable,
 };
 
 function getGenreId(searchedGenreName) {

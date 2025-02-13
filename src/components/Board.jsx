@@ -19,11 +19,19 @@ import { generateValueArray } from 'src/utilities';
  *
  * @param {'easy'|'normal'|'hard'|'serious'} props.difficulty - Determines amount of cards on the board.
  * @param {string} props.genre - The genre of movies that should be displayed on cards.
- * @param {string} props.onNavigateToMenu - Function that will be called on click of a main menu button.
+ * @param {string} props.bestScore - Best score that will be displayed in scoreboard,
+ * @param {function} props.onNavigateToMenuClick - Function that will be called on click of a main menu button.
+ * @param {function} props.onBestScoreChange - Function that will be called on a change of best score.
  * @returns
  */
 
-function Board({ difficulty, genre, onNavigateToMenu }) {
+function Board({
+  difficulty,
+  genre,
+  bestScore,
+  onNavigateToMenuClick,
+  onBestScoreChange,
+}) {
   const quantity = getDifficultyQuantity(difficulty);
 
   const [movies, setMovies] = useState([]);
@@ -92,14 +100,17 @@ function Board({ difficulty, genre, onNavigateToMenu }) {
   const randomizedCards = changeArrayOrder(cards, reducedOrder);
 
   const score = countValuesGreaterOrEqual(clicks, 1);
+  if (score > bestScore) {
+    onBestScoreChange(score);
+  }
 
   const { isEnd, isWin } = getGameStatus(clicks, quantity);
 
   return (
     <>
-      <Scoreboard score={score} genre={genre} difficulty={difficulty} />
+      <Scoreboard bestScore={bestScore} score={score} />
       <button onClick={restartGame}>Restart</button>
-      <button onClick={onNavigateToMenu}>Exit</button>
+      <button onClick={onNavigateToMenuClick}>Exit</button>
       <div>{randomizedCards}</div>
 
       {isEnd && (
@@ -108,7 +119,7 @@ function Board({ difficulty, genre, onNavigateToMenu }) {
           score={score}
           difficulty={difficulty}
           genre={genre}
-          onNavigateToMenuClick={onNavigateToMenu}
+          onNavigateToMenuClick={onNavigateToMenuClick}
           onRestartGameClick={restartGame}
         />
       )}
