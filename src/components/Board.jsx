@@ -4,6 +4,7 @@ import {
   getUniqueNumberArray,
   removeNumbers,
   changeArrayOrder,
+  countValuesGreaterOrEqual,
 } from 'src/utilities';
 
 import Card from 'components/Card';
@@ -12,7 +13,7 @@ import EndModal from 'components/EndModal';
 
 import { useEffect, useState } from 'react';
 
-import { generateValueArray, countValuesInArray } from 'src/utilities';
+import { generateValueArray } from 'src/utilities';
 
 /**
  *
@@ -90,12 +91,13 @@ function Board({ difficulty, genre, onNavigateToMenu }) {
   const reducedOrder = removeNumbers(order, quantity - 1);
   const randomizedCards = changeArrayOrder(cards, reducedOrder);
 
-  const score = countValuesInArray(clicks, 1);
+  const score = countValuesGreaterOrEqual(clicks, 1);
 
   const { isEnd, isWin } = getGameStatus(clicks, quantity);
 
   return (
     <>
+      <Scoreboard score={score} genre={genre} difficulty={difficulty} />
       <button onClick={restartGame}>Restart</button>
       <button onClick={onNavigateToMenu}>Exit</button>
       <div>{randomizedCards}</div>

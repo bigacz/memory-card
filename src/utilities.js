@@ -60,9 +60,9 @@ function generateValueArray(quantity, value) {
   return valueArray;
 }
 
-function countValuesInArray(array, value) {
-  return array.reduce((accumulator, item) => {
-    const isSame = item === value;
+function countValuesGreaterOrEqual(array, minValue) {
+  return array.reduce((accumulator, number) => {
+    const isSame = number >= minValue;
 
     const newAccumulator = isSame ? accumulator + 1 : accumulator;
 
@@ -113,7 +113,7 @@ export {
   fetchMoviesData,
   getDifficultyQuantity,
   generateValueArray,
-  countValuesInArray,
+  countValuesGreaterOrEqual,
   getUniqueNumberArray,
   removeNumbers,
   changeArrayOrder,
