@@ -122,6 +122,15 @@ function saveBestScoresTable(table) {
   localStorage.setItem('bestScores', JSON.stringify(table));
 }
 
+function capitalize(string) {
+  const stringArray = string.split('');
+  stringArray[0] = String.toUpperCase(stringArray[0]);
+
+  const capitalizedString = stringArray.join('');
+
+  return capitalizedString;
+}
+
 export {
   fetchMoviesData,
   getDifficultyQuantity,
@@ -132,6 +141,7 @@ export {
   changeArrayOrder,
   getBestScoresTable,
   saveBestScoresTable,
+  capitalize,
 };
 
 function getGenreId(searchedGenreName) {

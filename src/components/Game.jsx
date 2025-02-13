@@ -24,6 +24,16 @@ function Game() {
     setIsBoardDisplayed(true);
   }
 
+  function changeDifficulty(difficulty) {
+    setDifficulty(difficulty);
+    resetClicks();
+  }
+
+  function changeGenre(genre) {
+    setGenre(genre);
+    resetClicks();
+  }
+
   function resetClicks() {
     setClicks(generateValueArray(20, 0));
   }
@@ -62,8 +72,9 @@ function Game() {
     <GameSelector
       selectedDifficulty={difficulty}
       selectedGenre={genre}
-      onDifficultySelect={setDifficulty}
-      onGenreSelect={setGenre}
+      bestScoreTable={bestScoreTable}
+      onDifficultySelect={changeDifficulty}
+      onGenreSelect={changeGenre}
       onPlayClick={showBoard}
     />
   );

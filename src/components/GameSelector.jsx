@@ -14,6 +14,7 @@ import genres from 'data/genres';
 function GameSelector({
   selectedDifficulty,
   selectedGenre,
+  bestScoreTable,
   onDifficultySelect,
   onGenreSelect,
   onPlayClick,
@@ -35,6 +36,7 @@ function GameSelector({
 
   const difficultiesButtons = difficulties.map((difficulty) => {
     const { name, quantity } = difficulty;
+    const bestScore = bestScoreTable[`${selectedGenre}${name}`] ?? 0;
 
     function sendDifficultySelect() {
       onDifficultySelect(name);
@@ -42,7 +44,8 @@ function GameSelector({
 
     return (
       <button onClick={sendDifficultySelect} key={quantity}>
-        {name}
+        <p>{name}</p>
+        <p>High Score: {bestScore}</p>
       </button>
     );
   });
