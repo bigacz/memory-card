@@ -19,14 +19,15 @@ function GameSelector({
   onPlayClick,
 }) {
   const genresButtons = genres.map((genre) => {
-    const { name, id } = genre;
+    const { name, id, image } = genre;
 
     function sendGenreSelect() {
       onGenreSelect(name);
     }
 
     return (
-      <button onClick={sendGenreSelect} key={id}>
+      <button onClick={sendGenreSelect} key={id} className="game-selector-card">
+        <img src={image} alt="" />
         {name}
       </button>
     );

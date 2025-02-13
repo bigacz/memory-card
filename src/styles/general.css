@@ -2,3 +2,15 @@ body {
   background-color: #383838;
   color: #ebebeb;
 }
+
+.game-selector-card {
+  display: grid;
+  grid-template-columns: 200px;
+  grid-template-rows: 250px 1rem;
+}
+
+.game-selector-card img {
+  object-fit: cover;
+  height: 100%;
+  width: 100%;
+}
