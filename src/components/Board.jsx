@@ -13,33 +13,31 @@ import EndModal from 'components/EndModal';
 
 import { useEffect, useState } from 'react';
 
-import { generateValueArray } from 'src/utilities';
-
 /**
  *
  * @param {'easy'|'normal'|'hard'|'serious'} props.difficulty - Determines amount of cards on the board.
  * @param {string} props.genre - The genre of movies that should be displayed on cards.
  * @param {string} props.bestScore - Best score that will be displayed in scoreboard,
  * @param {function} props.onNavigateToMenuClick - Function that will be called on click of a main menu button.
- * @param {function} props.onBestScoreChange - Function that will be called on a change of best score.
  * @returns
  */
 
 function Board({
+  clicks,
   difficulty,
   genre,
   bestScore,
   onNavigateToMenuClick,
-  onBestScoreChange,
+  onRestartGame,
+  onCardClick,
 }) {
   const quantity = getDifficultyQuantity(difficulty);
 
   const [movies, setMovies] = useState([]);
-  const [clicks, setClicks] = useState(generateValueArray(20, 0));
   const [order, setOrder] = useState(getUniqueNumberArray(20));
 
   function restartGame() {
-    setClicks(generateValueArray(20, 0));
+    onRestartGame();
     setRandomOrder();
   }
 
@@ -77,10 +75,8 @@ function Board({
     const imagePath = `https://image.tmdb.org/t/p/w300/${movie.poster_path}`;
 
     function handleCardClick() {
-      const newClicks = [...clicks];
-      newClicks[i] += 1;
+      onCardClick(i);
 
-      setClicks(newClicks);
       setRandomOrder();
     }
 
@@ -100,9 +96,6 @@ function Board({
   const randomizedCards = changeArrayOrder(cards, reducedOrder);
 
   const score = countValuesGreaterOrEqual(clicks, 1);
-  if (score > bestScore) {
-    onBestScoreChange(score);
-  }
 
   const { isEnd, isWin } = getGameStatus(clicks, quantity);
 
