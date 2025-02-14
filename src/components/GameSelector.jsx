@@ -1,3 +1,5 @@
+import 'styles/components/GameSelector.css';
+
 import difficulties from 'data/difficulties.json';
 import genres from 'data/genres';
 
@@ -27,9 +29,13 @@ function GameSelector({
     }
 
     return (
-      <button onClick={sendGenreSelect} key={id} className="game-selector-card">
+      <button
+        onClick={sendGenreSelect}
+        key={id}
+        className="game-selector__genres-wrapper__button"
+      >
         <img src={image} alt="" />
-        {name}
+        <p>{name}</p>
       </button>
     );
   });
@@ -51,9 +57,11 @@ function GameSelector({
   });
 
   return (
-    <div>
-      <div>{genresButtons}</div>
-      <div>{difficultiesButtons}</div>
+    <div className="game-selector">
+      <div className="game-selector__genres-wrapper">{genresButtons}</div>
+      <div className="game-selector__difficulties-wrapper">
+        {difficultiesButtons}
+      </div>
       <div>
         <button onClick={onPlayClick}>Play</button>
       </div>

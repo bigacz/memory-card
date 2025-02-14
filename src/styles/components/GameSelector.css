@@ -1,0 +1,36 @@
+.game-selector {
+  justify-content: center;
+  display: grid;
+}
+
+.game-selector__genres-wrapper {
+  display: grid;
+  grid-template-columns: repeat(5, 250px);
+  grid-template-rows: repeat(2, 350px);
+  gap: 10px;
+}
+
+.game-selector__genres-wrapper__button {
+  position: relative;
+  padding: 0;
+  border: 0;
+  border-radius: 3px;
+}
+
+.game-selector__genres-wrapper__button img {
+  border-radius: inherit;
+  object-fit: cover;
+  height: 100%;
+  width: 100%;
+}
+
+.game-selector__genres-wrapper__button p {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+  font-size: 2rem;
+  font-weight: bold;
+  margin: 0;
+}
