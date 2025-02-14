@@ -124,7 +124,7 @@ function saveBestScoresTable(table) {
 
 function capitalize(string) {
   const stringArray = string.split('');
-  stringArray[0] = String.toUpperCase(stringArray[0]);
+  stringArray[0] = stringArray[0].toUpperCase();
 
   const capitalizedString = stringArray.join('');
 
