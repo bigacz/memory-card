@@ -1,3 +1,6 @@
+import exitIcon from 'assets/icons/exit.svg';
+import restartIcon from 'assets/icons/restart.svg';
+
 import {
   fetchMoviesData,
   getDifficultyQuantity,
@@ -102,8 +105,12 @@ function Board({
   return (
     <>
       <Scoreboard bestScore={bestScore} score={score} />
-      <button onClick={restartGame}>Restart</button>
-      <button onClick={onNavigateToMenuClick}>Exit</button>
+      <button onClick={restartGame}>
+        <img src={restartIcon} alt="Restart" />
+      </button>
+      <button onClick={onNavigateToMenuClick}>
+        <img src={exitIcon} alt="Exit" />
+      </button>
       <div>{randomizedCards}</div>
 
       {isEnd && (
