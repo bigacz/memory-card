@@ -6,12 +6,7 @@
  */
 
 function Card({ text, image, onClick }) {
-  return (
-    <div onClick={onClick}>
-      <img src={image} alt="Poster of movie" />
-      <p>{text}</p>
-    </div>
-  );
+  return <img onClick={onClick} src={image} alt={text} />;
 }
 
 export default Card;

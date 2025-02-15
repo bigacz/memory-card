@@ -1,3 +1,5 @@
+import 'styles/components/Board.css';
+
 import exitIcon from 'assets/icons/exit.svg';
 import restartIcon from 'assets/icons/restart.svg';
 
@@ -103,7 +105,7 @@ function Board({
   const { isEnd, isWin } = getGameStatus(clicks, quantity);
 
   return (
-    <>
+    <div className="board">
       <Scoreboard bestScore={bestScore} score={score} />
       <button onClick={restartGame}>
         <img src={restartIcon} alt="Restart" />
@@ -111,7 +113,11 @@ function Board({
       <button onClick={onNavigateToMenuClick}>
         <img src={exitIcon} alt="Exit" />
       </button>
-      <div>{randomizedCards}</div>
+      <div
+        className={`board__cards-wrapper board__cards-wrapper--${difficulty}`}
+      >
+        {randomizedCards}
+      </div>
 
       {isEnd && (
         <EndModal
@@ -123,7 +129,7 @@ function Board({
           onRestartGameClick={restartGame}
         />
       )}
-    </>
+    </div>
   );
 }
 

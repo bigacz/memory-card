@@ -1,0 +1,23 @@
+.board {
+}
+
+.board__cards-wrapper {
+  display: grid;
+  justify-content: center;
+}
+
+.board__cards-wrapper--easy {
+  grid-template-columns: repeat(4, max-content);
+}
+
+.board__cards-wrapper--normal {
+  grid-template-columns: repeat(6, max-content);
+}
+
+.board__cards-wrapper--hard {
+  grid-template-columns: repeat(5, max-content);
+}
+
+.board__cards-wrapper--serious {
+  grid-template-columns: repeat(5, max-content);
+}
