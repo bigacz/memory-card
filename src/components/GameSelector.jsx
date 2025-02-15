@@ -2,6 +2,7 @@ import 'styles/components/GameSelector.css';
 
 import difficulties from 'data/difficulties.json';
 import genres from 'data/genres';
+import { capitalize } from 'src/utilities';
 
 /**
  *
@@ -9,7 +10,6 @@ import genres from 'data/genres';
  * @param {string} props.selectedGenre - Highlights received genre.
  * @param {function} props.onDifficultySelect - Function that will be called on a click of any difficulty.
  * @param {function} props.onGenreSelect - Function that will be called on a click of any genre.
- * @param {function} props.onPlayClick - Function that will be called on a click of a play button.
  * @returns
  */
 
@@ -19,7 +19,6 @@ function GameSelector({
   bestScoreTable,
   onDifficultySelect,
   onGenreSelect,
-  onPlayClick,
 }) {
   const genresButtons = genres.map((genre) => {
     const { name, id, image } = genre;
@@ -32,7 +31,7 @@ function GameSelector({
       <button
         onClick={sendGenreSelect}
         key={id}
-        className="game-selector__genres-wrapper__button"
+        className="game-selector__genres__button"
       >
         <img src={image} alt="" />
         <p>{name}</p>
@@ -48,23 +47,31 @@ function GameSelector({
       onDifficultySelect(name);
     }
 
+    const classNames = [
+      'game-selector__difficulties__button',
+      `game-selector__difficulties__button--${name}`,
+    ].join(' ');
+
     return (
-      <button onClick={sendDifficultySelect} key={quantity}>
-        <p>{name}</p>
-        <p>High Score: {bestScore}</p>
+      <button
+        onClick={sendDifficultySelect}
+        key={quantity}
+        className={classNames}
+      >
+        <p className="game-selector__difficulties__button__name">
+          {capitalize(name)}
+        </p>
+        <p className="game-selector__difficulties__button__score">
+          Score: {bestScore}
+        </p>
       </button>
     );
   });
 
   return (
     <div className="game-selector">
-      <div className="game-selector__genres-wrapper">{genresButtons}</div>
-      <div className="game-selector__difficulties-wrapper">
-        {difficultiesButtons}
-      </div>
-      <div>
-        <button onClick={onPlayClick}>Play</button>
-      </div>
+      <div className="game-selector__genres">{genresButtons}</div>
+      <div className="game-selector__difficulties">{difficultiesButtons}</div>
     </div>
   );
 }

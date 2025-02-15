@@ -20,13 +20,11 @@ function Game() {
     setIsBoardDisplayed(false);
   }
 
-  function showBoard() {
-    setIsBoardDisplayed(true);
-  }
-
-  function changeDifficulty(difficulty) {
+  function changeDifficultyAndStart(difficulty) {
     setDifficulty(difficulty);
     resetClicks();
+
+    setIsBoardDisplayed(true);
   }
 
   function changeGenre(genre) {
@@ -73,9 +71,8 @@ function Game() {
       selectedDifficulty={difficulty}
       selectedGenre={genre}
       bestScoreTable={bestScoreTable}
-      onDifficultySelect={changeDifficulty}
+      onDifficultySelect={changeDifficultyAndStart}
       onGenreSelect={changeGenre}
-      onPlayClick={showBoard}
     />
   );
 
