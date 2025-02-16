@@ -21,6 +21,7 @@ import { useEffect, useState } from 'react';
  *
  * @param {'easy'|'normal'|'hard'|'serious'} props.difficulty - Determines amount of cards on the board.
  * @param {string} props.genre - The genre of movies that should be displayed on cards.
+ * @param {string} props.bestScore - Best score that will be displayed in end screen,
  * @param {function} props.onNavigateToMenuClick - Function that will be called on click of a main menu button.
  * @returns
  */
@@ -29,6 +30,7 @@ function Board({
   clicks,
   difficulty,
   genre,
+  bestScore,
   onNavigateToMenuClick,
   onRestartGame,
   onCardClick,
@@ -119,6 +121,7 @@ function Board({
         <EndModal
           isWin={isWin}
           score={score}
+          bestScore={bestScore}
           difficulty={difficulty}
           genre={genre}
           onNavigateToMenuClick={onNavigateToMenuClick}

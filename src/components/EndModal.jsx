@@ -2,6 +2,7 @@
  *
  * @param {boolean} props.isWin - Displays whether game was won or not.
  * @param {number} props.score - Displays score.
+ * @param {string} props.bestScore - Displays best score.
  * @param {string} props.difficulty - Displays difficulty.
  * @param {string} props.genre - Displays genre.
  * @param {function} props.onNavigateToMenuClick - Function that will be called on click of a main menu button.
@@ -12,6 +13,7 @@
 function EndModal({
   isWin,
   score,
+  bestScore,
   difficulty,
   genre,
   onNavigateToMenuClick,
@@ -22,6 +24,7 @@ function EndModal({
       <div>
         <h2>You {isWin ? 'won' : 'lost'}!</h2>
         <p>Score: {score}</p>
+        <p>High Score: {bestScore}</p>
         <p>Difficulty: {difficulty}</p>
         <p>Genre: {genre}</p>
       </div>
