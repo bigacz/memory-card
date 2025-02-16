@@ -13,7 +13,6 @@ import {
 } from 'src/utilities';
 
 import Card from 'components/Card';
-import Scoreboard from 'components/Scoreboard';
 import EndModal from 'components/EndModal';
 
 import { useEffect, useState } from 'react';
@@ -22,7 +21,6 @@ import { useEffect, useState } from 'react';
  *
  * @param {'easy'|'normal'|'hard'|'serious'} props.difficulty - Determines amount of cards on the board.
  * @param {string} props.genre - The genre of movies that should be displayed on cards.
- * @param {string} props.bestScore - Best score that will be displayed in scoreboard,
  * @param {function} props.onNavigateToMenuClick - Function that will be called on click of a main menu button.
  * @returns
  */
@@ -31,7 +29,6 @@ function Board({
   clicks,
   difficulty,
   genre,
-  bestScore,
   onNavigateToMenuClick,
   onRestartGame,
   onCardClick,
@@ -106,7 +103,6 @@ function Board({
 
   return (
     <div className="board">
-      <Scoreboard bestScore={bestScore} score={score} />
       <button onClick={restartGame}>
         <img src={restartIcon} alt="Restart" />
       </button>

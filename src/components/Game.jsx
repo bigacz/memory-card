@@ -1,3 +1,5 @@
+import 'styles/components/Game.css';
+
 import GameSelector from 'components/GameSelector';
 import Board from 'components/Board';
 
@@ -8,6 +10,7 @@ import {
   saveBestScoresTable,
   countValuesGreaterOrEqual,
 } from 'src/utilities';
+import Scoreboard from 'components/Scoreboard';
 
 function Game() {
   const [clicks, setClicks] = useState(generateValueArray(20, 0));
@@ -80,7 +83,9 @@ function Game() {
     <>
       <h1 className="game-header">Movie Memory</h1>
       {isBoardDisplayed && <Scoreboard score={score} bestScore={bestScore} />}
-{isBoardDisplayed ? board : gameSelector}</>;
+      {isBoardDisplayed ? board : gameSelector}
+    </>
+  );
 }
 
 export default Game;
