@@ -76,7 +76,11 @@ function Game() {
     />
   );
 
-  return <>{isBoardDisplayed ? board : gameSelector}</>;
+  return (
+    <>
+      <h1 className="game-header">Movie Memory</h1>
+      {isBoardDisplayed && <Scoreboard score={score} bestScore={bestScore} />}
+{isBoardDisplayed ? board : gameSelector}</>;
 }
 
 export default Game;
