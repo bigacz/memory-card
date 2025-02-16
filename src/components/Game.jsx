@@ -66,6 +66,7 @@ function Game() {
       onNavigateToMenuClick={hideBoard}
       onRestartGame={resetClicks}
       onCardClick={updateClicks}
+      wrapperClass="game__board"
     />
   );
 
@@ -76,15 +77,22 @@ function Game() {
       bestScoreTable={bestScoreTable}
       onDifficultySelect={changeDifficultyAndStart}
       onGenreSelect={changeGenre}
+      wrapperClass="game__game-selector"
     />
   );
 
   return (
-    <>
-      <h1 className="game-header">Movie Memory</h1>
-      {isBoardDisplayed && <Scoreboard score={score} bestScore={bestScore} />}
+    <div className="game">
+      <h1 className="game__header">Movie Memory</h1>
+      {isBoardDisplayed && (
+        <Scoreboard
+          score={score}
+          bestScore={bestScore}
+          wrapperClass="game__scoreboard"
+        />
+      )}
       {isBoardDisplayed ? board : gameSelector}
-    </>
+    </div>
   );
 }
 

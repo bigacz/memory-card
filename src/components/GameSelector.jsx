@@ -19,6 +19,7 @@ function GameSelector({
   bestScoreTable,
   onDifficultySelect,
   onGenreSelect,
+  wrapperClass,
 }) {
   const genresButtons = genres.map((genre) => {
     const { name, id, image } = genre;
@@ -69,7 +70,7 @@ function GameSelector({
   });
 
   return (
-    <div className="game-selector">
+    <div className={`game-selector ${wrapperClass}`}>
       <div className="game-selector__genres">{genresButtons}</div>
       <div className="game-selector__difficulties">{difficultiesButtons}</div>
     </div>

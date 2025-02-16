@@ -34,6 +34,7 @@ function Board({
   onNavigateToMenuClick,
   onRestartGame,
   onCardClick,
+  wrapperClass,
 }) {
   const quantity = getDifficultyQuantity(difficulty);
 
@@ -104,7 +105,7 @@ function Board({
   const { isEnd, isWin } = getGameStatus(clicks, quantity);
 
   return (
-    <div className="board">
+    <div className={`board ${wrapperClass}`}>
       <button onClick={restartGame}>
         <img src={restartIcon} alt="Restart" />
       </button>
