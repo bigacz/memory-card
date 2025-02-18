@@ -18,6 +18,10 @@
   border-radius: 3px;
 }
 
+.game-selector__genres__button--selected {
+  outline: #ebebeb 6px solid;
+}
+
 .game-selector__genres__button img {
   border-radius: inherit;
   object-fit: cover;

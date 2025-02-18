@@ -26,13 +26,14 @@ function GameSelector({
       onGenreSelect(name);
     }
 
+    const buttonClasses = [
+      'game-selector__genres__button',
+      selectedGenre === name && 'game-selector__genres__button--selected',
+    ].join(' ');
+
     return (
-      <button
-        onClick={sendGenreSelect}
-        key={id}
-        className="game-selector__genres__button"
-      >
-        <img src={image} alt="" />
+      <button onClick={sendGenreSelect} key={id} className={buttonClasses}>
+        <img src={image} alt={name} draggable="false" />
         <p>{name}</p>
       </button>
     );
