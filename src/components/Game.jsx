@@ -72,7 +72,6 @@ function Game() {
 
   const gameSelector = (
     <GameSelector
-      selectedDifficulty={difficulty}
       selectedGenre={genre}
       bestScoreTable={bestScoreTable}
       onDifficultySelect={changeDifficultyAndStart}

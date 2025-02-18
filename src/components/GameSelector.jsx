@@ -6,7 +6,6 @@ import { capitalize } from 'src/utilities';
 
 /**
  *
- * @param {string} props.selectedDifficulty - Highlights received difficulty.
  * @param {string} props.selectedGenre - Highlights received genre.
  * @param {function} props.onDifficultySelect - Function that will be called on a click of any difficulty.
  * @param {function} props.onGenreSelect - Function that will be called on a click of any genre.
@@ -14,7 +13,6 @@ import { capitalize } from 'src/utilities';
  */
 
 function GameSelector({
-  selectedDifficulty,
   selectedGenre,
   bestScoreTable,
   onDifficultySelect,
