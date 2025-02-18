@@ -12,52 +12,52 @@ import westernImage from 'assets/images/western.jpg';
 const genres = [
   {
     id: 28,
-    name: 'Action',
+    name: 'action',
     image: actionImage,
   },
   {
     id: 12,
-    name: 'Adventure',
+    name: 'adventure',
     image: adventureImage,
   },
   {
     id: 35,
-    name: 'Comedy',
+    name: 'comedy',
     image: comedyImage,
   },
   {
     id: 80,
-    name: 'Crime',
+    name: 'crime',
     image: crimeImage,
   },
   {
     id: 14,
-    name: 'Fantasy',
+    name: 'fantasy',
     image: fantasyImage,
   },
   {
     id: 36,
-    name: 'History',
+    name: 'history',
     image: historyImage,
   },
   {
     id: 27,
-    name: 'Horror',
+    name: 'horror',
     image: horrorImage,
   },
   {
     id: 878,
-    name: 'Science Fiction',
+    name: 'science fiction',
     image: scienceFictionImage,
   },
   {
     id: 10752,
-    name: 'War',
+    name: 'war',
     image: warImage,
   },
   {
     id: 37,
-    name: 'Western',
+    name: 'western',
     image: westernImage,
   },
 ];
