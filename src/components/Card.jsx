@@ -6,7 +6,7 @@
  */
 
 function Card({ text, image, onClick }) {
-  return <img onClick={onClick} src={image} alt={text} />;
+  return <img onClick={onClick} src={image} alt={text} draggable="false" />;
 }
 
 export default Card;
