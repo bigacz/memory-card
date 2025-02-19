@@ -1,5 +1,8 @@
-import { useEffect } from 'react';
 import 'styles/components/EndModal.css';
+
+import { useEffect } from 'react';
+
+import { capitalize } from 'src/utilities';
 
 /**
  *
@@ -35,15 +38,25 @@ function EndModal({
   return (
     <div className="end-modal">
       <div className="end-modal__dialog">
-        <div>
+        <div className="end-modal__dialog__content">
           <h2>You {isWin ? 'won' : 'lost'}!</h2>
           <p>Score: {score}</p>
           <p>High Score: {bestScore}</p>
-          <p>Difficulty: {difficulty}</p>
-          <p>Genre: {genre}</p>
+          <p>Difficulty: {capitalize(difficulty)}</p>
+          <p>Genre: {capitalize(genre)}</p>
         </div>
-        <button onClick={onNavigateToMenuClick}>Main Menu</button>
-        <button onClick={onRestartGameClick}>Play again</button>
+        <button
+          className="end-modal__dialog__button end-modal__dialog__button--menu"
+          onClick={onNavigateToMenuClick}
+        >
+          Main Menu
+        </button>
+        <button
+          className="end-modal__dialog__button end-modal__dialog__button--play"
+          onClick={onRestartGameClick}
+        >
+          Play Again
+        </button>
       </div>
     </div>
   );
