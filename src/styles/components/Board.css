@@ -1,6 +1,7 @@
 .board {
   display: grid;
   grid-template-rows: max-content 1fr;
+  gap: 1rem;
 }
 
 .board__buttons-wrapper {
