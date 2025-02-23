@@ -50,6 +50,15 @@
 
 .board__cards-wrapper {
   --repeat: auto-fill;
+
+  display: grid;
+  gap: 1rem;
+
+  grid-auto-rows: max-content;
+  grid-template-columns: repeat(var(--repeat), var(--width) var(--width));
+
+  justify-content: center;
+  align-content: center;
 }
 
 @media (min-width: calc(1000px + 4rem)) {
@@ -62,17 +71,6 @@
   .board__cards-wrapper {
     --repeat: 0;
   }
-}
-
-.board__cards-wrapper {
-  display: grid;
-  gap: 1rem;
-
-  grid-auto-rows: max-content;
-  grid-template-columns: repeat(var(--repeat), var(--width) var(--width));
-
-  justify-content: center;
-  align-content: center;
 }
 
 .board__cards-wrapper--easy,
