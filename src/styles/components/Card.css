@@ -3,11 +3,8 @@
 
   width: 100%;
 
-  pointer-events: none;
   user-select: none;
-  user-drag: none;
   -moz-user-select: none;
   -webkit-user-select: none;
-  -ms-user-select: none;*/
-  display: grid;
+  -ms-user-select: none;
 }
