@@ -1,14 +1,23 @@
 .game-selector {
-  justify-content: center;
   display: grid;
   grid-template-rows: max-content 1fr;
 }
 
 .game-selector__genres {
+  --repeat: auto-fill;
+
   display: grid;
-  grid-template-columns: repeat(5, 250px);
-  grid-template-rows: repeat(2, 350px);
+  grid-template-columns: repeat(var(--repeat), 250px);
+  grid-auto-rows: 350px;
   gap: 15px;
+
+  justify-content: center;
+}
+
+@media (min-width: calc(1250px + 5rem)) {
+  .game-selector__genres {
+    --repeat: 5;
+  }
 }
 
 .game-selector__genres__button {
