@@ -1,3 +1,5 @@
+import 'styles/components/Card.css';
+
 /**
  *
  * @param {string} props.text - Text that will be displayed on the card.
@@ -6,7 +8,15 @@
  */
 
 function Card({ text, image, onClick }) {
-  return <img onClick={onClick} src={image} alt={text} draggable="false" />;
+  return (
+    <img
+      onClick={onClick}
+      src={image}
+      alt={text}
+      draggable="false"
+      className="card"
+    />
+  );
 }
 
 export default Card;

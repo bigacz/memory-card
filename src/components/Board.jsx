@@ -106,12 +106,14 @@ function Board({
 
   return (
     <div className={`board ${wrapperClass}`}>
-      <button onClick={restartGame}>
-        <img src={restartIcon} alt="Restart" />
-      </button>
-      <button onClick={onNavigateToMenuClick}>
-        <img src={exitIcon} alt="Exit" />
-      </button>
+      <div className="board__buttons-wrapper">
+        <button onClick={restartGame}>
+          <img src={restartIcon} alt="Restart" />
+        </button>
+        <button onClick={onNavigateToMenuClick}>
+          <img src={exitIcon} alt="Exit" />
+        </button>
+      </div>
       <div
         className={`board__cards-wrapper board__cards-wrapper--${difficulty}`}
       >
