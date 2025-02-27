@@ -7,4 +7,6 @@
   -moz-user-select: none;
   -webkit-user-select: none;
   -ms-user-select: none;
+  transition: transform 0.1s;
+  border-radius: 3px;
 }
