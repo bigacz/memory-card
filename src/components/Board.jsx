@@ -77,7 +77,7 @@ function Board({
   let cards = [];
   for (let i = 0; i < quantity; i++) {
     const movie = movies[i];
-    const imagePath = `https://image.tmdb.org/t/p/w300/${movie.poster_path}`;
+    const imagePath = `https://image.tmdb.org/t/p/w500/${movie.poster_path}`;
 
     function handleCardClick() {
       onCardClick(i);
