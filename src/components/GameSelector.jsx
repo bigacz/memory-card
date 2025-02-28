@@ -36,7 +36,7 @@ function GameSelector({
     return (
       <button onClick={sendGenreSelect} key={id} className={buttonClasses}>
         <img src={image} alt={name} draggable="false" />
-        <p>{name}</p>
+        <p>{capitalize(name)}</p>
       </button>
     );
   });
