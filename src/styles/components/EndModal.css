@@ -47,6 +47,18 @@
   background-color: rgb(41, 41, 41);
   border: none;
   border-radius: 2px;
+
+  transition:
+    transform 0.1s,
+    filter 0.1s;
+}
+
+.end-modal__dialog__button:hover {
+  transform: scale(1.02);
+}
+
+.end-modal__dialog__button:active {
+  filter: brightness(0.8);
 }
 
 .end-modal__dialog__button--play {
