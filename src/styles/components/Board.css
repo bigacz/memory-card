@@ -70,6 +70,8 @@
 @media (max-width: calc(500px + 1rem)) {
   .board__cards-wrapper {
     --repeat: 0;
+
+    padding: 0 clamp(0rem, 2vw, 1rem);
   }
 }
 
