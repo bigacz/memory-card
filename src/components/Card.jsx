@@ -40,6 +40,7 @@ function Card({ text, image, onClick }) {
       onMouseLeave={() => {
         setCursorPosition({ x: 0, y: 0 });
       }}
+      className="card"
     >
       <img
         onClick={onClick}
@@ -49,7 +50,7 @@ function Card({ text, image, onClick }) {
         src={image}
         alt={text}
         draggable="false"
-        className="card"
+        className="card__image"
       />
     </div>
   );
