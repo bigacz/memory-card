@@ -93,20 +93,20 @@
 
 .game-selector__difficulties__button--easy {
   --difficulty-color-1: #60bf22;
-  --difficulty-color-2: #428316;
+  --difficulty-color-2: #4fa119;
 }
 
 .game-selector__difficulties__button--normal {
   --difficulty-color-1: #ffc600;
-  --difficulty-color-2: #a78302;
+  --difficulty-color-2: #d1a401;
 }
 
 .game-selector__difficulties__button--hard {
   --difficulty-color-1: #f18f01;
-  --difficulty-color-2: #aa6601;
+  --difficulty-color-2: #c97903;
 }
 
 .game-selector__difficulties__button--serious {
   --difficulty-color-1: #e41f1f;
-  --difficulty-color-2: #921212;
+  --difficulty-color-2: #b61616;
 }

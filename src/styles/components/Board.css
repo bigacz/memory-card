@@ -37,11 +37,11 @@
 }
 
 .board__buttons-wrapper__button--restart {
-  background-color: #2d7dd2;
+  background-color: var(--accent-1);
 }
 
 .board__buttons-wrapper__button--exit {
-  background-color: #ef476f;
+  background-color: var(--accent-2);
 }
 
 .board__buttons-wrapper__button img {

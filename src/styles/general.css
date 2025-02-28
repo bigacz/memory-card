@@ -1,8 +1,21 @@
+:root {
+  --background-1: #edf2f4;
+  --background-2: #e0e0e0;
+  --background-3: #cccccc;
+
+  --color-1: #101418;
+  --color-2: #edf2f4;
+
+  --accent-1: #2d7dd2;
+  --accent-2: #ef476f;
+  --accent-3: #28b628;
+}
+
 body {
   font-family: Calibri;
 
-  background-color: #383838;
-  color: #ebebeb;
+  background-color: var(--background-1);
+  color: var(--color-1);
 
   min-height: 100vh;
 }
