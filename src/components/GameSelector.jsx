@@ -7,8 +7,10 @@ import { capitalize } from 'src/utilities';
 /**
  *
  * @param {string} props.selectedGenre - Highlights received genre.
+ * @param {object} props.bestScoreTable - Object containing best scores for each difficulty and genre, will be displayed in scoreboard.
  * @param {function} props.onDifficultySelect - Function that will be called on a click of any difficulty.
- * @param {function} props.onGenreSelect - Function that will be called on a click of any genre.
+ * @param {function} props.onGenreSelect - Function that will be called on a genre select.
+ * @param {string} props.wrapperClass - - Class that will be applied to the outermost component element.
  * @returns
  */
 

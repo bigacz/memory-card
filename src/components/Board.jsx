@@ -18,11 +18,13 @@ import EndModal from 'components/EndModal';
 import { useEffect, useState } from 'react';
 
 /**
- *
+ * @param {number} props.clicks - isClicked array of cards.
  * @param {'easy'|'normal'|'hard'|'serious'} props.difficulty - Determines amount of cards on the board.
  * @param {string} props.genre - The genre of movies that should be displayed on cards.
- * @param {string} props.bestScore - Best score that will be displayed in end screen,
+ * @param {number} props.bestScore - Best score that will be displayed in end screen.
  * @param {function} props.onNavigateToMenuClick - Function that will be called on click of a main menu button.
+ * @param {function} props.onCardClick - Function that will be called on click of a card, will be provided an index of clicked card.
+ * @param {string} props.wrapperClass - Class that will be applied to the outermost component element.
  * @returns
  */
 

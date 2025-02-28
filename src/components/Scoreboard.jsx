@@ -2,7 +2,9 @@ import 'styles/components/Scoreboard.css';
 
 /**
  *
- * @param {string} props.wrapperClass - Class that will be applied to the outermost component element
+ * @param {number} props.bestScore - Best score, will be displayed.
+ * @param {number} props.score -  Score, will be displayed.
+ * @param {string} props.wrapperClass - Class that will be applied to the outermost component element.
  * @returns
  */
 
