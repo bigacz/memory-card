@@ -40,10 +40,18 @@ function EndModal({
       <div className="end-modal__dialog">
         <div className="end-modal__dialog__content">
           <h2>You {isWin ? 'won' : 'lost'}!</h2>
-          <p>Score: {score}</p>
-          <p>High Score: {bestScore}</p>
-          <p>Difficulty: {capitalize(difficulty)}</p>
-          <p>Genre: {capitalize(genre)}</p>
+          <p>
+            Score: <b>{score}</b>
+          </p>
+          <p>
+            High Score: <b>{bestScore}</b>
+          </p>
+          <p>
+            Difficulty: <b>{capitalize(difficulty)}</b>
+          </p>
+          <p>
+            Genre: <b>{capitalize(genre)}</b>
+          </p>
         </div>
         <button
           className="end-modal__dialog__button end-modal__dialog__button--menu"
