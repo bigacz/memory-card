@@ -6,8 +6,8 @@
 
   grid-template-columns: 1fr 150px;
   grid-template-rows: max-content 1fr;
-
   min-height: 100vh;
+  row-gap: clamp(0px, 0.5vw, 0.5rem);
 }
 
 .game__header {
