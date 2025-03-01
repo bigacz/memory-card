@@ -54,12 +54,18 @@
 .game-selector__difficulties {
   padding-bottom: 1rem;
   display: grid;
-  grid-template-columns: repeat(auto-fit, 200px);
+  grid-template-columns: repeat(auto-fit, 200px 200px);
   align-items: center;
   justify-content: center;
   justify-items: center;
 
   gap: 20px;
+}
+
+@media (max-width: 450px) {
+  .game-selector__difficulties {
+    grid-template-columns: 200px;
+  }
 }
 
 .game-selector__difficulties__button {
