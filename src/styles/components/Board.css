@@ -67,14 +67,6 @@
   }
 }
 
-@media (max-width: calc(500px + 1rem)) {
-  .board__cards-wrapper {
-    --repeat: 0;
-
-    padding: 0 clamp(0rem, 2vw, 1rem);
-  }
-}
-
 .board__cards-wrapper--easy,
 .board__cards-wrapper--normal {
   --width: 250px;
@@ -86,4 +78,12 @@
 
 .board__cards-wrapper--serious {
   --width: 170px;
+}
+
+@media (max-width: calc(500px + 1rem)) {
+  .board__cards-wrapper {
+    --repeat: 1;
+    --width: 1fr;
+    padding: 0 clamp(0rem, 2vw, 1rem);
+  }
 }
