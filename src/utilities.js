@@ -131,6 +131,14 @@ function capitalize(string) {
   return capitalizedString;
 }
 
+function roundTo(number, decimalPoints) {
+  const multiplier = Math.pow(10, decimalPoints);
+
+  const roundedNumber = Math.round(number * multiplier) / multiplier;
+
+  return roundedNumber;
+}
+
 export {
   fetchMoviesData,
   getDifficultyQuantity,
@@ -142,6 +150,7 @@ export {
   getBestScoresTable,
   saveBestScoresTable,
   capitalize,
+  roundTo,
 };
 
 function getGenreId(searchedGenreName) {

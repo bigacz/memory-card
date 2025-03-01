@@ -1,6 +1,8 @@
 import { useState } from 'react';
 import 'styles/components/Card.css';
 
+import { roundTo } from 'src/utilities';
+
 /**
  *
  * @param {string} props.text - Text that will be displayed on the card.
@@ -30,8 +32,8 @@ function Card({ text, image, onClick }) {
         const xMiddleRelative = xPosition - width / 2;
         const yMiddleRelative = yPosition - height / 2;
 
-        const xPercentage = xMiddleRelative / (width / 2);
-        const yPercentage = (yMiddleRelative / (height / 2)) * -1;
+        const xPercentage = roundTo(xMiddleRelative / (width / 2), 3);
+        const yPercentage = roundTo((yMiddleRelative / (height / 2)) * -1, 3);
 
         const newCursorPercentage = { x: xPercentage, y: yPercentage };
 
