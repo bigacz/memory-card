@@ -29,7 +29,11 @@
 }
 
 .game-selector__genres__button--selected {
-  outline: #ebebeb 6px solid;
+  box-shadow:
+    0px 0px 0px 2px var(--background-1),
+    0px 0px 0px 5px var(--color-1);
+
+  /* outline: rgb(37, 37, 37) 4px solid; */
 }
 
 .game-selector__genres__button img {
